@@ -36,6 +36,3 @@ jobs:
 
       - name: Build
         run: yarn build
-
-      - name: Show build output
-        run: ls build/node_modules/*
