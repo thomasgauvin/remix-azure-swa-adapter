@@ -1,5 +1,5 @@
 {
-  "name": "@remix-run/azure-functions",
+  "name": "@derkoe/remix-azure-functions",
   "version": "1.6.8",
   "description": "Azure Functions server request handler for Remix",
   "bugs": {

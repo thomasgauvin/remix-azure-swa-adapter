@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+        with:
+          repository: 'remix-run/remix'
+          ref: 'remix@1.6.8'
+          fetch-depth: 0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+        with:
+          path: 'packages/remix-azure-functions'
+          fetch-depth: 0
+      
+      - name: Apply patch
+        run: git apply packages/remix-azure-functions/remix.patch
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+
+      - name: 📥 Install deps
+        run: yarn
+
+      - name: Build
+        run: yarn build --tsc --publish
+
+      - name: 🔐 Setup npm auth
+        run: |
+          echo "registry=https://registry.npmjs.org" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+
+      - name: Publish
+        run: |
+          cd build/node_modules/@remix-run/azure-functions
+          yarn publish
