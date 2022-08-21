@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout Remix repo
+        uses: actions/checkout@v3
+        with:
+          repository: 'remix-run/remix'
+          fetch-depth: 0
+
+      - name: ⬇️ Checkout remix-azure-functions repo
+        uses: actions/checkout@v3
+        with:
+          path: 'packages/remix-azure-functions'
+          fetch-depth: 0
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+
+      - name: 📥 Install deps
+        run: yarn --frozen-lockfile
+
+      - name: Build
+        run: yarn run build
