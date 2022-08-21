@@ -1,0 +1,29 @@
+From: Aaron Powell <me@aaron-powell.com>
+Date: Tue, 29 Mar 2022 05:30:04 +0000
+Subject: Add remix-azure-functions
+
+diff --git a/jest.config.js b/jest.config.js
+index d4ce0925bc..8f840a7e1f 100644
+--- a/jest.config.js
++++ b/jest.config.js
+@@ -14,6 +14,7 @@ module.exports = {
+     "packages/remix-node",
+     "packages/remix-react",
+     "packages/remix-server-runtime",
++    "packages/remix-azure-functions",
+   ],
+   watchPlugins: [
+     require.resolve("jest-watch-select-projects"),
+diff --git a/package.json b/package.json
+index bfc025cf95..5a6477bc3b 100644
+--- a/package.json
++++ b/package.json
+@@ -6,6 +6,7 @@
+     "packages/create-remix",
+     "packages/remix",
+     "packages/remix-architect",
++    "packages/remix-azure-functions",
+     "packages/remix-cloudflare",
+     "packages/remix-cloudflare-pages",
+     "packages/remix-cloudflare-workers",
+---

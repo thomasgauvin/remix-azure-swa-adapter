@@ -22,6 +22,9 @@ jobs:
           path: 'packages/remix-azure-functions'
           fetch-depth: 0
 
+      - name: Apply Remix patch
+        run: git apply packages/remix-azure-functions/remix.patch
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
@@ -29,7 +32,7 @@ jobs:
           cache: "yarn"
 
       - name: 📥 Install deps
-        run: yarn --frozen-lockfile
+        run: yarn
 
       - name: Build
         run: yarn run build
