@@ -12,7 +12,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "dependencies": {
-    "@remix-run/node": "1.6.8"
+    "@remix-run/node": "1.7.0"
   },
   "devDependencies": {
     "@azure/functions": "^3.2.0",
