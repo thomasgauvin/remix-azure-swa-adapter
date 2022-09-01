@@ -1,6 +1,6 @@
 {
   "name": "@derkoe/remix-azure-functions",
-  "version": "1.6.8",
+  "version": "1.7.0",
   "description": "Azure Functions server request handler for Remix",
   "bugs": {
     "url": "https://github.com/derkoe/remix-azure-functions/issues"
