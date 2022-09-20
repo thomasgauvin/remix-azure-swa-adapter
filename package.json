@@ -1,6 +1,6 @@
 {
   "name": "@derkoe/remix-azure-functions",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Azure Functions server request handler for Remix",
   "bugs": {
     "url": "https://github.com/derkoe/remix-azure-functions/issues"
@@ -12,7 +12,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "dependencies": {
-    "@remix-run/node": "1.7.0"
+    "@remix-run/node": "1.7.1"
   },
   "devDependencies": {
     "@azure/functions": "^3.2.0",
